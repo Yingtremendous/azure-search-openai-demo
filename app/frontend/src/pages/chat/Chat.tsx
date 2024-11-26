@@ -36,6 +36,8 @@ import { TokenClaimsDisplay } from "../../components/TokenClaimsDisplay";
 import { LoginContext } from "../../loginContext";
 import { LanguagePicker } from "../../i18n/LanguagePicker";
 import { Settings } from "../../components/Settings/Settings";
+import FileList from "../../components/FileList/FileList";
+import PdfPreview from "../../components/PdfPreview/PdfPreview";
 
 const Chat = () => {
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
@@ -368,6 +370,13 @@ const Chat = () => {
             </div>
             <div className={styles.chatRoot} style={{ marginLeft: isHistoryPanelOpen ? "300px" : "0" }}>
                 <div className={styles.chatContainer}>
+                    <div className={styles.fileList}>
+                        <FileList /> {/* 文件列表模块 */}
+                    </div>
+                    <div className={styles.pdfPreview}>
+                        <PdfPreview fileUrl="./data/20220629_ISpec_FERRERO_Materialflusssteuerung_v20.pdf" /> {/* PDF 预览模块 */}
+                    </div>
+                    <div className={styles.chatContent}>
                     {!lastQuestionRef.current ? (
                         <div className={styles.chatEmptyState}>
                             <SparkleFilled fontSize={"120px"} primaryFill={"rgba(115, 118, 225, 1)"} aria-hidden="true" aria-label="Chat logo" />
@@ -454,6 +463,7 @@ const Chat = () => {
                             showSpeechInput={showSpeechInput}
                         />
                     </div>
+                </div>
                 </div>
 
                 {answers.length > 0 && activeAnalysisPanelTab && (

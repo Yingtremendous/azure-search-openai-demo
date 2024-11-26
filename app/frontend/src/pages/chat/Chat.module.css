@@ -13,10 +13,25 @@
 .chatContainer {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: flex-start;
     width: 100%;
     max-height: calc(100vh - 10rem);
+}
+
+.pdfPrevview {
+    width: 40%;
+    padding: 10px;
+}
+
+.chatContent {
+    width: 40%;
+    padding: 10px;
+}
+
+.fileList {
+    width: 20%;
+    padding: 10px;
 }
 
 .chatEmptyState {
